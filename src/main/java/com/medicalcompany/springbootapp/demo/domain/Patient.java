@@ -17,7 +17,7 @@ import java.util.List;
         @Column(name = "Name")
         private String name;
         @OneToMany(mappedBy = "patient", targetEntity = Symptom.class)
-        private List<Symptom>  symptoms;
+        private List  symptoms;
 
         @Column(name = "Date_of_birth")
         @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
@@ -30,6 +30,13 @@ import java.util.List;
 
 
 
+        public Patient(){}
+
+        public Patient(String name,String dateOfBirth, List listOfMorbidities){
+            this.name = name;
+            this.dateOfBirth = dateOfBirth;
+            this.listOfMorbidities = listOfMorbidities;
+        }
 
 
 

@@ -18,4 +18,10 @@ public class Morbidity {
     @ManyToMany(mappedBy = "listOfMorbidities",fetch = FetchType.EAGER)
     private List<Patient> listOfPatients;
 
+    public Morbidity(String name){
+        this.name = name;
+    }
+    public Morbidity(){}
+
+
 }
