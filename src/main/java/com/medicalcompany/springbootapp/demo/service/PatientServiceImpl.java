@@ -30,6 +30,12 @@ public class PatientServiceImpl implements PatientService {
     public Optional<Patient> findPatientById(Long id){
        return patientRepository.findById(id);
     }
+    @Override
+    public List<Patient> findPatientByAge(int age){
+
+        return patientRepository.findPatientByAge(age);
+
+    }
 
 
 }
