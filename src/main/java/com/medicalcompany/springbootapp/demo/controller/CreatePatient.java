@@ -21,9 +21,9 @@ public class CreatePatient {
     @Autowired
     private MorbidityService morbidityService;
 
-    @RequestMapping(value="/test/{name}/{listOfMorbs}/{dateOfBirth}", method=RequestMethod.GET)
+    @RequestMapping(value="/patient/{name}/{listOfMorbs}/{dateOfBirth}", method=RequestMethod.GET)
     @ResponseBody
-    public Patient test(@PathVariable String name,@PathVariable String[] listOfMorbs,@PathVariable String dateOfBirth)
+    public Patient newPat(@PathVariable String name,@PathVariable String[] listOfMorbs,@PathVariable String dateOfBirth)
     {
         List<Morbidity> morbidities = new ArrayList<>();
 
@@ -47,34 +47,5 @@ public class CreatePatient {
 
         return savedPatient;
     }
-        // firstNameIds: [1,2,3,4]
 
-
-
-//
-//    @GetMapping(value = "/patient/{name}/{listOfMorb}/{dateOfBirth}")
-//    @ResponseBody
-    @RequestMapping(path="/patient/{name}/{listofMorb}/{dateOfBirth}", method = RequestMethod.GET)
-    public Patient create(@PathVariable String name, @PathVariable String[] listOfMorb,@PathVariable String dateOfBirth){
-        List<Morbidity> morbidities = new ArrayList<>();
-
-
-        for (String morb:listOfMorb){
-            Optional<Morbidity> morbidity=morbidityService.findByName(morb);
-            if (morbidity.isPresent()){
-                morbidities.add(morbidity.get());
-
-
-
-            }
-
-
-        }
-        Patient dummy = new Patient();
-        Patient patient = new Patient(name,dateOfBirth,morbidities);
-
-
-
-        return dummy;
-    }
 }

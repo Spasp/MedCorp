@@ -15,6 +15,7 @@ public class Morbidity {
     private Long id;
     @Column(name = "Name")
     private String name;
+
     @ManyToMany(mappedBy = "listOfMorbidities",fetch = FetchType.EAGER)
     private List<Patient> listOfPatients;
 

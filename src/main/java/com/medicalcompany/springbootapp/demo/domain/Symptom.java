@@ -27,4 +27,13 @@ public class Symptom {
     @JoinColumn(name = "Patient_id")
     private Patient patient;
 
+   public Symptom(String name,Patient patient,String dateOfOccurrence){
+        this.name = name;
+        this.patient =patient;
+        this.dateOfOccurrence =dateOfOccurrence;
+    }
+    public Symptom(){
+
+    }
+
 }
