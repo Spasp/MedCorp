@@ -46,6 +46,7 @@ private MorbidityService morbidityService;
 	}
 	@Override
 	public void run(String... args) {
+		// Test for inputing data
 		morbidityRepository.save(new Morbidity("5"));
 
 		ArrayList<Integer> morbs =new ArrayList();
