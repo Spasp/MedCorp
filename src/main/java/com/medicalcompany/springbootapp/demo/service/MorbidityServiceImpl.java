@@ -27,4 +27,8 @@ public class MorbidityServiceImpl implements MorbidityService {
         return  morbidityRepository.findByName(name);
 
     }
+    @Override
+    public Morbidity save(Morbidity morbidity){
+        return morbidityRepository.save(morbidity);
+    }
 }

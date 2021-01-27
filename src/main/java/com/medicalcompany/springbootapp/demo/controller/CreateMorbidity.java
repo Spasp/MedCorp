@@ -14,7 +14,7 @@ public class CreateMorbidity {
     @Autowired
     private MorbidityService morbidityService;
 
-
+// the proper way to create an  new object is with Post, i use GET to quickly pass data through params rather  than writing complete objects.
 
     @GetMapping(value="/morbidity/{name}")
     public Morbidity create(@PathVariable String name){
@@ -22,9 +22,9 @@ public class CreateMorbidity {
 
     }
 
-    @PostMapping(value ="morbidity")
-    public Morbidity registerMorbidity(@RequestBody String name){
-        return morbidityService.register(name);
+    @PostMapping(value ="/morbidity")
+    public Morbidity registerMorbidity(@RequestBody Morbidity morbidity){
+        return morbidityService.save(morbidity);
     }
 
 }

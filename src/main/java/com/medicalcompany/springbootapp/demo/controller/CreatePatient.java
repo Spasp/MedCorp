@@ -27,6 +27,8 @@ public class CreatePatient {
     {
         List<Morbidity> morbidities = new ArrayList<>();
 
+        //creating the Patient with the list of the morbidities with Jpa repository methods.
+
 
         for (String morb:listOfMorbs){
             Optional<Morbidity> morbidity=morbidityService.findByName(morb);

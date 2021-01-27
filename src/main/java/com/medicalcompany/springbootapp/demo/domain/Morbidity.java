@@ -1,5 +1,6 @@
 package com.medicalcompany.springbootapp.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -15,7 +16,7 @@ public class Morbidity {
     private Long id;
     @Column(name = "Name")
     private String name;
-
+    @JsonIgnore
     @ManyToMany(mappedBy = "listOfMorbidities",fetch = FetchType.EAGER)
     private List<Patient> listOfPatients;
 

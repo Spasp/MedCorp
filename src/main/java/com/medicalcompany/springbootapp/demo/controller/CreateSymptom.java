@@ -16,6 +16,8 @@ public class CreateSymptom {
     @Autowired
     SymptomRepository symptomRepository;
 
+    // Using GET to simulate input Form data. The proper way is Get(URL)->Form->Post(URL)->Model->Mapper(ModeltoObject)->DB
+
     @RequestMapping(value="/symptom/{name}/{patientId}/{dateOfOccurrence}", method= RequestMethod.GET)
     @ResponseBody
     public Symptom newSympt(@PathVariable String name, @PathVariable Long  patientId,@PathVariable String dateOfOccurrence){
@@ -28,6 +30,7 @@ public class CreateSymptom {
 
         }
         else{
+            // in case there is no patient with given id return an empty object.
             return new Symptom();
         }
 

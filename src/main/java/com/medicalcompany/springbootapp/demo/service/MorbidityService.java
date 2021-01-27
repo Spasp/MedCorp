@@ -7,4 +7,5 @@ import java.util.Optional;
 public interface MorbidityService {
     Morbidity register(String name);
     Optional<Morbidity> findByName(String Name);
+    Morbidity save(Morbidity morbidity);
 }
