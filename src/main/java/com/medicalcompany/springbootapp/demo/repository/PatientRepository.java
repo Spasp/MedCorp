@@ -18,7 +18,7 @@ public interface PatientRepository extends JpaRepository<Patient, Long> {
      List<Integer>  findPatientByMorbList(String[] morbidities, int length);
 
 //Find Patients older than 65 and with multiple (>1) morbidity groups
-    @Query(value="Select Distinct Patient_id from Patient where Patient_id In (SELECT  Patient_id from Patient_Morbidity group By Patient_id Having COUNT(Patient_id)>1) And 2021-Patient.Date_of_birth>60",nativeQuery = true)
+    @Query(value="Select Distinct Patient_id from Patient where Patient_id In (SELECT  Patient_id from Patient_Morbidity group By Patient_id Having COUNT(Patient_id)>1) And (2021-Patient.Date_of_birth)>65",nativeQuery = true)
     List<Long> findPatientsOver65MultipleMorbs();
 
 }
