@@ -14,4 +14,7 @@ public interface SymptomRepository extends JpaRepository<Symptom, Long> {
     @Query(value="SELECT  * FROM Symptom Where  Symptom.Patient_id=(:id)", nativeQuery = true)
     List<Symptom> findSymptomById(Long id);
 
+
+
+
 }

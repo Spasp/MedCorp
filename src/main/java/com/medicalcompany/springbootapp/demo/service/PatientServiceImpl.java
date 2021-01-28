@@ -14,6 +14,8 @@ public class PatientServiceImpl implements PatientService {
     @Autowired
     private PatientRepository patientRepository;
 
+
+
     @Override
     public Patient register(String name, String dateOfBirth, List<Morbidity> morbidities){
         Patient patient = new Patient(name,dateOfBirth,morbidities);
@@ -46,6 +48,9 @@ public class PatientServiceImpl implements PatientService {
     public Patient save(Patient patient){
         return patientRepository.save(patient);
     }
-
+    @Override
+    public List<Long>  findOver65MultiplMorbs(){
+        return  patientRepository.findPatientsOver65MultipleMorbs();
+    }
 
 }

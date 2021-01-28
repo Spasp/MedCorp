@@ -59,7 +59,7 @@ private SymptomService symptomService;
 	public void run(String... args) {
 		morbidityService.save(new Morbidity("6"));
 		morbidityService.save(new Morbidity("7"));
-		//patientService.register("Stavros","1948", {2,3});
+		//patientService.register("Stavros","1948", new ArrayList<String>());
 
 		// Test for inputing data
 

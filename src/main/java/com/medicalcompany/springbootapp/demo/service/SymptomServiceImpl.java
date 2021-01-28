@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+
 @Service
 public class SymptomServiceImpl implements SymptomService {
     @Autowired
@@ -27,6 +29,11 @@ public class SymptomServiceImpl implements SymptomService {
     @Override
     public Symptom save(Symptom symptom){
         return symptomRepository.save(symptom);
+
+    }
+    @Override
+    public Optional<Symptom> findById(Long id){
+        return symptomRepository.findById(id);
 
     }
 }

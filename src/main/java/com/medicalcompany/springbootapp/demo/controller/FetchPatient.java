@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+// controller to fetch Patient that belongs to all morbidity groups
 @RestController
 public class FetchPatient {
     @Autowired

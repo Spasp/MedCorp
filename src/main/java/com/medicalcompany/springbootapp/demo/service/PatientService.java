@@ -12,6 +12,7 @@ public interface PatientService {
     List<Patient> findPatientByAge(int age);
     List<Integer> findPatientByGivenList(String[] morbidities);
     Patient save(Patient patient);
+    List<Long> findOver65MultiplMorbs();
 
 
 }

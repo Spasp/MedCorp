@@ -5,6 +5,7 @@ import com.medicalcompany.springbootapp.demo.repository.MorbidityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -31,4 +32,5 @@ public class MorbidityServiceImpl implements MorbidityService {
     public Morbidity save(Morbidity morbidity){
         return morbidityRepository.save(morbidity);
     }
+
 }

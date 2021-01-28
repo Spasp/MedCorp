@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+// Controller to fetch all Patients older than a input age
 @RestController
 public class FetchByAge {
 
