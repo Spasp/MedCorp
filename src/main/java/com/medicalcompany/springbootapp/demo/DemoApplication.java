@@ -5,10 +5,7 @@ import com.medicalcompany.springbootapp.demo.domain.Patient;
 import com.medicalcompany.springbootapp.demo.repository.MorbidityRepository;
 import com.medicalcompany.springbootapp.demo.repository.PatientRepository;
 import com.medicalcompany.springbootapp.demo.repository.SymptomRepository;
-import com.medicalcompany.springbootapp.demo.service.MorbidityService;
-import com.medicalcompany.springbootapp.demo.service.MorbidityServiceImpl;
-import com.medicalcompany.springbootapp.demo.service.SymptomService;
-import com.medicalcompany.springbootapp.demo.service.SymptomServiceImpl;
+import com.medicalcompany.springbootapp.demo.service.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -18,6 +15,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -27,6 +25,8 @@ public class DemoApplication implements CommandLineRunner {
 private MorbidityRepository morbidityRepository;
 @Autowired
 private PatientRepository patientRepository;
+@Autowired
+private PatientService patientService;
 @Autowired
 private	SymptomRepository symptomRepository;
 @Autowired
@@ -57,6 +57,10 @@ private SymptomService symptomService;
 	}
 	@Override
 	public void run(String... args) {
+		morbidityService.save(new Morbidity("6"));
+		morbidityService.save(new Morbidity("7"));
+		//patientService.register("Stavros","1948", {2,3});
+
 		// Test for inputing data
 
 

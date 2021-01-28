@@ -1,12 +1,8 @@
 package com.medicalcompany.springbootapp.demo.controller;
 
 import com.medicalcompany.springbootapp.demo.domain.Morbidity;
-import com.medicalcompany.springbootapp.demo.repository.MorbidityRepository;
 import com.medicalcompany.springbootapp.demo.service.MorbidityService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

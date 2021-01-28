@@ -21,19 +21,17 @@ public class CreatePatient {
     @Autowired
     private MorbidityService morbidityService;
 
-    @RequestMapping(value="/patient/{name}/{listOfMorbs}/{dateOfBirth}", method=RequestMethod.GET)
-    public Patient newPat(@PathVariable String name,@PathVariable String[] listOfMorbs,@PathVariable String dateOfBirth)
-    {
+    @RequestMapping(value = "/patient/{name}/{listOfMorbs}/{dateOfBirth}", method = RequestMethod.GET)
+    public Patient newPat(@PathVariable String name, @PathVariable String[] listOfMorbs, @PathVariable String dateOfBirth) {
         List<Morbidity> morbidities = new ArrayList<>();
 
         //creating the Patient with the list of the morbidities with Jpa repository methods.
 
 
-        for (String morb:listOfMorbs){
-            Optional<Morbidity> morbidity=morbidityService.findByName(morb);
-            if (morbidity.isPresent()){
+        for (String morb : listOfMorbs) {
+            Optional<Morbidity> morbidity = morbidityService.findByName(morb);
+            if (morbidity.isPresent()) {
                 morbidities.add(morbidity.get());
-
 
 
             }
@@ -42,14 +40,14 @@ public class CreatePatient {
         }
 
 
-        Patient savedPatient = patientService.register(name,dateOfBirth,morbidities);
-
+        Patient savedPatient = patientService.register(name, dateOfBirth, morbidities);
 
 
         return savedPatient;
     }
 
-
+// the proper way to create a Patient Instance. Of course we need an extra model(dto) , mappers, services
+    //to establish the relation with Morbidity Instances.
     @RequestMapping(value="/patient",method=RequestMethod.POST)
     public Patient newPatient(@RequestBody Patient patient){
         return patientService.save(patient);
