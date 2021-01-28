@@ -10,5 +10,8 @@ public interface PatientService {
     Patient register(String name,  String dateOfBirth,List<Morbidity> morbidities);
     Optional <Patient> findPatientById(Long id);
     List<Patient> findPatientByAge(int age);
+    List<Integer> findPatientByGivenList(String[] morbidities);
+    Patient save(Patient patient);
+
 
 }

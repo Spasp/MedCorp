@@ -22,7 +22,6 @@ public class CreatePatient {
     private MorbidityService morbidityService;
 
     @RequestMapping(value="/patient/{name}/{listOfMorbs}/{dateOfBirth}", method=RequestMethod.GET)
-    @ResponseBody
     public Patient newPat(@PathVariable String name,@PathVariable String[] listOfMorbs,@PathVariable String dateOfBirth)
     {
         List<Morbidity> morbidities = new ArrayList<>();
@@ -48,6 +47,12 @@ public class CreatePatient {
 
 
         return savedPatient;
+    }
+
+
+    @RequestMapping(value="/patient",method=RequestMethod.POST)
+    public Patient newPatient(@RequestBody Patient patient){
+        return patientService.save(patient);
     }
 
 }

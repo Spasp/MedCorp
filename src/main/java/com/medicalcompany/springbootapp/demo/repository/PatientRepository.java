@@ -14,4 +14,8 @@ public interface PatientRepository extends JpaRepository<Patient, Long> {
     @Query(value="SELECT  * FROM Patient Where  2021-CAST(Patient.Date_of_birth AS INT )>(:age)", nativeQuery = true)
     List<Patient> findPatientByAge(int age);
 
+    @Query(value="Select Patient_id  from Patient_Morbidity where Morbidity_id In (:morbidities) group by Patient_id HAVING COUNT(Patient_id)=(:length)",nativeQuery = true)
+     List<Integer>  findPatientByMorbList(String[] morbidities, int length);
+
+
 }

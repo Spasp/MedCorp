@@ -36,6 +36,16 @@ public class PatientServiceImpl implements PatientService {
         return patientRepository.findPatientByAge(age);
 
     }
+    @Override
+    public List<Integer> findPatientByGivenList(String[] morbidities){
+        int length = morbidities.length;
+        return patientRepository.findPatientByMorbList(morbidities,length);
+
+    }
+    @Override
+    public Patient save(Patient patient){
+        return patientRepository.save(patient);
+    }
 
 
 }
