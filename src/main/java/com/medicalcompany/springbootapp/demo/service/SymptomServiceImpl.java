@@ -36,4 +36,8 @@ public class SymptomServiceImpl implements SymptomService {
         return symptomRepository.findById(id);
 
     }
+    @Override
+    public List<Symptom> findSymptomById(Long id){
+        return symptomRepository.findSymptomById(id);
+    }
 }

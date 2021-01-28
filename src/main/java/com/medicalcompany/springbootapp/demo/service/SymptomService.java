@@ -12,5 +12,6 @@ public interface SymptomService {
     Symptom register(String name, Patient patient,String dateOfOccurrence);
     List<Symptom> listOfSymptoms(Long id);
     Optional<Symptom> findById(Long id);
+    List<Symptom> findSymptomById(Long id);
 
 }
