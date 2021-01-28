@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -23,11 +24,12 @@ public class FetchSymptomsElderly {
         private SymptomService symptomService;
 
     @RequestMapping(value = "/symptom/elderly", method = RequestMethod.GET)
-    public List<Symptom> fetchSymptEldr(){
+    public List<List<Symptom>> fetchSymptEldr(){
         List<Long> patientsIds = patientService.findOver65MultiplMorbs();
-        List<Symptom> allSymptoms = new ArrayList<>();
+        List<List<Symptom>> allSymptoms = new ArrayList<>();
         for (Long patientId : patientsIds) {
-            allSymptoms.add(symptomService.findById(patientId).get());
+            List<Symptom> symptoms =symptomService.findSymptomById(patientId);
+            allSymptoms.add(symptoms);
 
         }
         return allSymptoms;
